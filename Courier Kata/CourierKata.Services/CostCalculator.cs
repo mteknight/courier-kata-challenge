@@ -23,22 +23,40 @@ namespace CourierKata.Services
 
             foreach (var dimensions in parcelDimensions)
             {
-                var dimensionsArray = new[] { dimensions.Length, dimensions.Height, dimensions.Width };
-                var largestDimension = dimensionsArray.Max();
-                var parcelSize = Parcel.ParcelSize.Small;
-
-                if (largestDimension >= 10 && largestDimension < 50)
-                {
-                    parcelSize = Parcel.ParcelSize.Medium;
-                }
-
-                var parcel = _parcelRepository.Get(parcelSize);
+                var parcel = GetParcel(dimensions);
 
                 estimation.Parcels.Add(parcel);
                 estimation.TotalCost += parcel.Cost;
             }
 
             return estimation;
+        }
+
+        private Parcel GetParcel(ParcelDimensions dimensions)
+        {
+            var parcelSize = GetParcelSize(dimensions);
+
+            return _parcelRepository.Get(parcelSize);
+        }
+
+        private static Parcel.ParcelSize GetParcelSize(ParcelDimensions dimensions)
+        {
+            var largestDimension = GetLargestDimension(dimensions);
+            var parcelSize = Parcel.ParcelSize.Small;
+
+            if (largestDimension >= 10 && largestDimension < 50)
+            {
+                parcelSize = Parcel.ParcelSize.Medium;
+            }
+
+            return parcelSize;
+        }
+
+        private static double GetLargestDimension(ParcelDimensions dimensions)
+        {
+            var dimensionsArray = new[] { dimensions.Length, dimensions.Height, dimensions.Width };
+
+            return dimensionsArray.Max();
         }
     }
 }
