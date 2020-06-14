@@ -11,6 +11,7 @@ namespace CourierKata.Services.Tests.CostCalculator
             new[]
             {
                 new object[] {new ParcelDimensions(1, 1, 1), new CostEstimation("Small", 3m, 3m)},
+                new object[] {new ParcelDimensions(9, 10, 9), new CostEstimation("Medium", 8m, 8m)},
             };
     }
 }
