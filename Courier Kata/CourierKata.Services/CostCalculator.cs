@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 using CourierKata.Domain.Entities;
 using CourierKata.Domain.ValueObjects;
@@ -22,7 +23,16 @@ namespace CourierKata.Services
 
             foreach (var dimensions in parcelDimensions)
             {
-                var parcel = _parcelRepository.Get(Parcel.ParcelSize.Small);
+                var dimensionsArray = new[] { dimensions.Length, dimensions.Height, dimensions.Width };
+                var largestDimension = dimensionsArray.Max();
+                var parcelSize = Parcel.ParcelSize.Small;
+
+                if (largestDimension >= 10 && largestDimension < 50)
+                {
+                    parcelSize = Parcel.ParcelSize.Medium;
+                }
+
+                var parcel = _parcelRepository.Get(parcelSize);
 
                 estimation.Parcels.Add(parcel);
                 estimation.TotalCost += parcel.Cost;
