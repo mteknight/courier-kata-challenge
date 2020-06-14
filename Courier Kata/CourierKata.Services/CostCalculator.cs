@@ -42,7 +42,7 @@ namespace CourierKata.Services
         private static Parcel.ParcelSize GetParcelSize(ParcelDimensions dimensions)
         {
             var largestDimension = GetLargestDimension(dimensions);
-            var parcelSize = default(Parcel.ParcelSize);
+            var parcelSize = Parcel.ParcelSize.XL;
 
             if (largestDimension < 10)
             {
