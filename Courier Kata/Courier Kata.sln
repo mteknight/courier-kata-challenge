@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourierKata.Services.Tests", "CourierKata.Services.Tests\CourierKata.Services.Tests.csproj", "{962C5AD3-6356-41DA-BEB8-1D7EB9DCD93F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourierKata.Services.Tests", "CourierKata.Services.Tests\CourierKata.Services.Tests.csproj", "{962C5AD3-6356-41DA-BEB8-1D7EB9DCD93F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourierKata.Services", "CourierKata.Services\CourierKata.Services.csproj", "{C0053312-0CFC-44C3-888E-8224CB622312}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourierKata.Services", "CourierKata.Services\CourierKata.Services.csproj", "{C0053312-0CFC-44C3-888E-8224CB622312}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourierKata.Domain", "CourierKata.Domain\CourierKata.Domain.csproj", "{0CAC71B4-CE29-42DC-A429-E95B505E2312}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C0053312-0CFC-44C3-888E-8224CB622312}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0053312-0CFC-44C3-888E-8224CB622312}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0053312-0CFC-44C3-888E-8224CB622312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CAC71B4-CE29-42DC-A429-E95B505E2312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CAC71B4-CE29-42DC-A429-E95B505E2312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CAC71B4-CE29-42DC-A429-E95B505E2312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CAC71B4-CE29-42DC-A429-E95B505E2312}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

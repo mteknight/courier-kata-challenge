@@ -1,13 +1,13 @@
-﻿namespace CourierKata.Services
+﻿using CourierKata.Domain.Entities;
+using CourierKata.Domain.ValueObjects;
+
+namespace CourierKata.Services
 {
-    public class CostCalculator
+    public class CostCalculator : ICostCalculator
     {
-        public (string Size, decimal Cost, decimal TotalCost) Calculate(
-            double length,
-            double height,
-            double width)
+        public CostEstimation Calculate(ParcelDimensions dimensions)
         {
-            return (Size: "Small", Cost: 8m, TotalCost: 8m);
+            return new CostEstimation("Small", 8m, 8m);
         }
     }
 }
