@@ -42,13 +42,17 @@ namespace CourierKata.Services
         private static Parcel.ParcelSize GetParcelSize(ParcelDimensions dimensions)
         {
             var largestDimension = GetLargestDimension(dimensions);
-            var parcelSize = Parcel.ParcelSize.Small;
+            var parcelSize = default(Parcel.ParcelSize);
 
-            if (largestDimension >= 10 && largestDimension < 50)
+            if (largestDimension < 10)
+            {
+                parcelSize = Parcel.ParcelSize.Small;
+            }
+            else if (largestDimension < 50)
             {
                 parcelSize = Parcel.ParcelSize.Medium;
             }
-            else if (largestDimension >= 50 && largestDimension < 100)
+            else if (largestDimension < 100)
             {
                 parcelSize = Parcel.ParcelSize.Large;
             }
