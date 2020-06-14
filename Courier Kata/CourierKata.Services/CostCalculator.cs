@@ -48,6 +48,10 @@ namespace CourierKata.Services
             {
                 parcelSize = Parcel.ParcelSize.Medium;
             }
+            else if (largestDimension >= 50 && largestDimension < 100)
+            {
+                parcelSize = Parcel.ParcelSize.Large;
+            }
 
             return parcelSize;
         }
