@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 using CourierKata.Domain.Entities;
 using CourierKata.Domain.ValueObjects;
 using CourierKata.Repositories;
@@ -24,6 +27,13 @@ namespace CourierKata.Services.Tests.CostCalculator
             _service = new Services.CostCalculator(_parcelRepositoryMock.Object);
         }
 
+        private void ConfigureRepositoryMock(Parcel parcel)
+        {
+            _parcelRepositoryMock
+                .Setup(repository => repository.Get(parcel.Size))
+                .Returns(() => parcel);
+        }
+
         [Theory]
         [MemberData(nameof(CostCalculatorTestData.DimensionsTestData), MemberType = typeof(CostCalculatorTestData))]
         public void TestCalculate_WhenValidDimensions_ExpectCheapestEstimation(
@@ -40,11 +50,17 @@ namespace CourierKata.Services.Tests.CostCalculator
             Assert.Equal(expectedEstimation, result);
         }
 
-        private void ConfigureRepositoryMock(Parcel parcel)
+        [Fact]
+        public void TestCalculate_WhenParameterIsNull_ExpectArgumentNullException()
         {
-            _parcelRepositoryMock
-                .Setup(repository => repository.Get(parcel.Size))
-                .Returns(() => parcel);
+            // Arrange
+            var dimensionsCollection = default(IEnumerable<ParcelDimensions>);
+
+            // Act
+            void SutCall() => _service.Calculate(dimensionsCollection);
+
+            // Assert
+            Assert.Throws<ArgumentNullException>(SutCall);
         }
     }
 }
