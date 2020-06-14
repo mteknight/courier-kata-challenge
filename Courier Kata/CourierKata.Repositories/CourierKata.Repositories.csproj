@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CourierKata.Domain\CourierKata.Domain.csproj" />
-    <ProjectReference Include="..\CourierKata.Repositories\CourierKata.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

@@ -10,8 +10,27 @@ namespace CourierKata.Services.Tests.CostCalculator
         public static IEnumerable<object[]> DimensionsTestData =>
             new[]
             {
-                new object[] {new ParcelDimensions(1, 1, 1), new CostEstimation("Small", 3m, 3m)},
-                new object[] {new ParcelDimensions(9, 10, 9), new CostEstimation("Medium", 8m, 8m)},
+                new object[] {new ParcelDimensions(1, 1, 1), CreateCostEstimation(SmallParcel, 3m)},
+                new object[] {new ParcelDimensions(9, 10, 9), CreateCostEstimation(MediumParcel, 8m)},
             };
+
+        public static Parcel SmallParcel => new Parcel { Size = Parcel.ParcelSize.Small, Cost = 3m };
+
+        public static Parcel MediumParcel => new Parcel { Size = Parcel.ParcelSize.Medium, Cost = 8m };
+
+        public static Parcel LargeParcel => new Parcel { Size = Parcel.ParcelSize.Large, Cost = 15m };
+
+        public static Parcel XLParcel => new Parcel { Size = Parcel.ParcelSize.XL, Cost = 25m };
+
+        private static CostEstimation CreateCostEstimation(
+            Parcel parcel,
+            decimal parcelCost)
+        {
+            var estimation = new CostEstimation();
+            estimation.Parcels.Add(parcel);
+            estimation.TotalCost = parcelCost;
+
+            return estimation;
+        }
     }
 }
