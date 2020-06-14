@@ -7,7 +7,7 @@ namespace CourierKata.Services
     {
         public CostEstimation Calculate(ParcelDimensions dimensions)
         {
-            return new CostEstimation("Small", 8m, 8m);
+            return new CostEstimation("Small", 3m, 3m);
         }
     }
 }
