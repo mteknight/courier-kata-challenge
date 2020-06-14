@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using CourierKata.Domain.Entities;
@@ -19,6 +20,11 @@ namespace CourierKata.Services
 
         public CostEstimation Calculate(IEnumerable<ParcelDimensions> parcelDimensions)
         {
+            if (parcelDimensions is null)
+            {
+                throw new ArgumentNullException(nameof(parcelDimensions));
+            }
+
             var estimation = new CostEstimation();
 
             foreach (var dimensions in parcelDimensions)
