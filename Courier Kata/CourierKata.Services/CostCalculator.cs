@@ -7,7 +7,7 @@
             double height,
             double width)
         {
-            throw new System.NotImplementedException();
+            return (Size: "Small", Cost: 8m, TotalCost: 8m);
         }
     }
 }
