@@ -12,6 +12,7 @@ namespace CourierKata.Services.Tests.CostCalculator
             {
                 new object[] {new ParcelDimensions(1, 1, 1), CreateCostEstimation(SmallParcel, 3m)},
                 new object[] {new ParcelDimensions(9, 10, 9), CreateCostEstimation(MediumParcel, 8m)},
+                new object[] {new ParcelDimensions(49, 50, 49), CreateCostEstimation(LargeParcel, 15m)},
             };
 
         public static Parcel SmallParcel => new Parcel { Size = Parcel.ParcelSize.Small, Cost = 3m };
